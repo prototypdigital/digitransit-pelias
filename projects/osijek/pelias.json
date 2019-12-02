@@ -5,9 +5,7 @@
   },
   "esclient": {
     "apiVersion": "6.8",
-    "hosts": [
-      { "host": "elasticsearch" }
-    ]
+    "hosts": [{ "host": "elasticsearch" }]
   },
   "schema": {
     "typeName": "_doc"
@@ -17,7 +15,7 @@
       "index": {
         "refresh_interval": "10s",
         "number_of_replicas": "0",
-        "number_of_shards": "3"
+        "number_of_shards": "1"
       }
     }
   },
@@ -32,43 +30,67 @@
       "pip": { "url": "http://pip:4200" },
       "interpolation": { "url": "http://interpolation:4300" },
       "libpostal": { "url": "http://libpostal:4400" }
+    },
+    "defaultParameters": {
+      "focus.point.lat": 45.52,
+      "focus.point.lon": -122.67
     }
   },
   "imports": {
     "adminLookup": {
       "enabled": true
     },
+    "blacklist": {
+      "files": ["/data/blacklist/osm.txt"]
+    },
+    "csv": {
+      "datapath": "/data/csv",
+      "files": [],
+      "download": []
+    },
     "geonames": {
       "datapath": "/data/geonames",
-      "countryCode": "JM"
+      "countryCode": "hr"
     },
     "openstreetmap": {
       "download": [
-        { "sourceURL": "http://download.geofabrik.de/central-america/jamaica-latest.osm.pbf" }
+        {
+          "sourceURL": "https://digitransit.sfo2.digitaloceanspaces.com/croatia.osm.pbf"
+        }
       ],
       "leveldbpath": "/tmp",
       "datapath": "/data/openstreetmap",
-      "import": [{
-        "filename": "jamaica-latest.osm.pbf"
-      }]
+      "import": [
+        {
+          "filename": "croatia.osm.pbf"
+        }
+      ]
     },
     "openaddresses": {
       "datapath": "/data/openaddresses",
-      "files": [
-        "jm/countrywide.csv"
-      ]
+      "files": []
     },
     "polyline": {
       "datapath": "/data/polylines",
-      "files": [ "extract.0sv" ]
+      "files": []
     },
     "whosonfirst": {
       "datapath": "/data/whosonfirst",
-      "importVenues": true,
+      "importVenues": false,
       "importPostalcodes": true,
-      "importPlace": [
-        "85632215"
-      ]
+      "importPlace": []
+    },
+    "transit": {
+      "datapath": "/data/transit",
+      "feeds": []
+    },
+    "interpolation": {
+      "download": {
+        "tiger": {
+          "datapath": "/data/tiger",
+          "states": []
+        }
+      }
     }
   }
 }
