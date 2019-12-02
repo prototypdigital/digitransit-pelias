@@ -32,8 +32,8 @@
       "libpostal": { "url": "http://libpostal:4400" }
     },
     "defaultParameters": {
-      "focus.point.lat": 45.52,
-      "focus.point.lon": -122.67
+      "focus.point.lat": 45.55281,
+      "focus.point.lon": 18.68376
     }
   },
   "imports": {
