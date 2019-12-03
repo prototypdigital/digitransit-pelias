@@ -55,7 +55,7 @@
     "openstreetmap": {
       "download": [
         {
-          "sourceURL": "https://digitransit.sfo2.digitaloceanspaces.com/croatia.osm.pbf"
+          "sourceURL": "https://download.geofabrik.de/europe/croatia-latest.osm.pbf"
         }
       ],
       "leveldbpath": "/tmp",
