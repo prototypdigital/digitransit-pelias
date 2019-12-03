@@ -9,7 +9,7 @@ services:
     user: "${DOCKER_USER}"
     restart: always
     ports: ["4400:4400"]
-    mem_limit: 1024m
+    mem_limit: 1536m
     mem_reservation: 1024m
     memswap_limit: 1024m
   schema:
@@ -94,7 +94,7 @@ services:
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
-    mem_limit: 1024m
+    mem_limit: 1536m
     mem_reservation: 1024m
     memswap_limit: 1024m
   pip:
