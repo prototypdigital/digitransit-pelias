@@ -9,12 +9,7 @@ services:
     user: "${DOCKER_USER}"
     restart: always
     ports: ["4400:4400"]
-    deploy:
-      resources:
-        limits:
-          memory: 1024M
-        reservations:
-          memory: 512M
+    mem_limit: 1024m
   schema:
     image: pelias/schema:master
     container_name: pelias_schema
@@ -97,12 +92,7 @@ services:
     volumes:
       - "./pelias.json:/code/pelias.json"
       - "${DATA_DIR}:/data"
-    deploy:
-      resources:
-        limits:
-          memory: 1024M
-        reservations:
-          memory: 512M
+    mem_limit: 1024m
   pip:
     image: pelias/pip-service:master
     container_name: pelias_pip-service
